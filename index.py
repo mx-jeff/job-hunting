@@ -2,11 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
-global driver
 
 class Infojobs:
-    global driver
-
     def __init__(self):
 
         self.options = Options()
@@ -38,14 +35,32 @@ class Infojobs:
 
     def searchOptions(self):
         self.cityOptionSaoPaulo = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetLocation3_rptFacet_ctl01_chkItem"]').click()
-        self.cltOption = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
+        #self.cltOption = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
         #self.jobOption = self.driver.find_element_by_xpath('')
+
+    def getJob(self):
+        self.driver.implicitly_wait(5)
+        self.jobsContainer = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_resultsGrid"]')
+        self.sourceCode = self.jobsContainer.get_attribute('outerHTML')
+        return self.sourceCode
+
+    @staticmethod
+    def saveHTML(html):
+        with open('test.html', 'wb') as file:
+            file.write(html.encode('utf-8'))
+
+    def quitSearch(self):
+        self.driver.quit()
+
 
 def main():
     jobs = Infojobs()
     jobs.login()
     jobs.searchList('python')
     jobs.searchOptions()
+    jobs.getJob()
+    jobs.saveHTML(jobs.getJob())
+    jobs.quitSearch()
 
 
 if __name__ == "__main__":
