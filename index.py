@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from time import sleep
 
 
 class Infojobs:
@@ -29,20 +30,38 @@ class Infojobs:
         self.submitButton.click()
 
     def searchList(self, jobType):
-        self.searchJob = self.driver.find_element_by_xpath('//*[@id="aspnetForm"]/div[3]/div[6]/section[1]/div/div/ol/li[1]/input')
+        self.searchJob = self.driver.find_element_by_xpath('/html/body/form/div[4]/div[6]/section[1]/div/div/ol/li[1]/input')
         self.searchJob.send_keys(str(jobType))
         self.searchJob.send_keys(Keys.ENTER)
 
     def searchOptions(self):
-        self.cityOptionSaoPaulo = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetLocation3_rptFacet_ctl01_chkItem"]').click()
-        #self.cltOption = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
-        #self.jobOption = self.driver.find_element_by_xpath('')
+        try:
+            self.cityOptionSaoPaulo = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetLocation3_rptFacet_ctl01_chkItem"]').click()
+            self.cltOption = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
+            #self.jobOption = self.driver.find_element_by_xpath('')
+        except:
+            sleep(10)
+            self.cltOption = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
+
+        sleep(10)
 
     def getJob(self):
-        self.driver.implicitly_wait(5)
+        sleep(5)
         self.jobsContainer = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_resultsGrid"]')
-        self.sourceCode = self.jobsContainer.get_attribute('outerHTML')
-        return self.sourceCode
+        #self.jobTarget = self.driver.find_element_by_xpath('/html/body/form/section/div/div[1]/section[2]/div[2]/div[3]/div[2]/a').click()
+        self.links = self.jobsContainer.find_elements_by_tag_name('a')
+        for link in self.links:
+            print(link.get_attribute('href'))
+
+
+    def subscribeJob(self):
+        driver = self.driver
+
+        driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cHeader_lnkCandidatar"]').click()
+        sleep(5)
+        driver.back()
+        sleep(5)
+        driver.back()
 
     @staticmethod
     def saveHTML(html):
@@ -56,11 +75,13 @@ class Infojobs:
 def main():
     jobs = Infojobs()
     jobs.login()
-    jobs.searchList('python')
+    jobs.searchList('jovem aprendiz')
     jobs.searchOptions()
     jobs.getJob()
-    jobs.saveHTML(jobs.getJob())
+    #jobs.subscribeJob()
     jobs.quitSearch()
+    
+
 
 
 if __name__ == "__main__":
