@@ -11,10 +11,10 @@ class Infojobs:
 
         self.options = Options()
         self.options.add_argument('--disable-notifications')
-        #self.options.add_argument('--headless')
+        self.options.add_argument('--headless')
         self.options.add_experimental_option("detach", True)
 
-        self.driver = webdriver.Chrome("C:/Selenium/chromedriver.exe", options=self.options)
+        self.driver = webdriver.Chrome("./chromedriver.exe", options=self.options)
         self.driver.get('http://www.infojobs.com.br')
         self.driver.implicitly_wait(10)
 
@@ -41,7 +41,7 @@ class Infojobs:
         try:
             self.cityOptionSaoPaulo = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetLocation3_rptFacet_ctl01_chkItem"]').click()
             self.cltOption = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
-            #self.jobOption = self.driver.find_element_by_xpath('')
+            
         except:
             sleep(10)
             self.cltOption = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
