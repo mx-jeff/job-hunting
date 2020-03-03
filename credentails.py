@@ -1,2 +1,6 @@
-user = "mx.jeferson.10@hotmail.com"
-password = "saopaulo1"
+"""
+Credentials Infojobs here, replace the following line below
+"""
+
+user = "Insert your use name"
+password = "Insert your password here"

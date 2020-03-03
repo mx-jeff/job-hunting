@@ -6,13 +6,13 @@ from credentails import user, password
 
 
 class Infojobs:
+
     jobsLink = []
 
     def __init__(self):
-
         self.options = Options()
         self.options.add_argument('--disable-notifications')
-        # self.options.add_argument('--headless')
+        #self.options.add_argument('--headless')
         self.options.add_experimental_option("detach", True)
 
         self.driver = webdriver.Chrome("./chromedriver.exe", options=self.options)
@@ -20,7 +20,10 @@ class Infojobs:
         self.driver.implicitly_wait(10)
 
     def login(self):
-
+        """
+        Login to Infojobs, with credentials
+        :return: None
+        """
         self.loginForm = self.driver.find_element_by_xpath('//*[@id="ctl00_cAccess_aLogin"]')
         self.loginForm.click()
 
@@ -34,6 +37,11 @@ class Infojobs:
         self.submitButton.click()
 
     def searchList(self, jobType="Jovem aprendiz"):
+        """
+        Go to main page and get the selected job
+        :param jobType: Type of job - String
+        :return: None
+        """
         try:
             self.searchJob = self.driver.find_element_by_xpath(
                 '/html/body/form/div[3]/div[6]/section[1]/div/div/ol/li[1]/input')
@@ -49,28 +57,42 @@ class Infojobs:
         self.searchJob.send_keys(Keys.ENTER)
 
     def searchOptions(self):
+        """
+        Select the options to customize job options
+        :return: None
+        """
         try:
+            # Select to São Paulo
             self.cityOptionSaoPaulo = self.driver.find_element_by_xpath(
                 '//*[@id="ctl00_phMasterPage_cFacetLocation3_rptFacet_ctl01_chkItem"]').click()
+            # Select CLT
             self.cltOption = self.driver.find_element_by_xpath(
                 '//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
 
         except:
             sleep(10)
+            #if falls, try to click again
             self.cltOption = self.driver.find_element_by_xpath(
                 '//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
 
         sleep(10)
 
     def getJob(self):
+        """
+        Get links from container of jobs to array and clicks one-by-one
+        :return: none
+        """
         try:
             sleep(5)
+            #jobs container
             self.jobsContainer = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_resultsGrid"]')
-            # self.jobTarget = self.driver.find_element_by_xpath('/html/body/form/section/div/div[1]/section[2]/div[2]/div[3]/div[2]/a').click()
+            # get links
             self.links = self.jobsContainer.find_elements_by_tag_name('a')
             for link in self.links:
+                #append to array
                 self.jobsLink.append(link.get_attribute('href').replace(',', ''))
 
+            #click to links
             for target in self.jobsLink:
                 self.subscribeJob(target)
 
@@ -80,14 +102,19 @@ class Infojobs:
             raise
 
     def subscribeJob(self, link):
+        #get driver
         driver = self.driver
 
         driver.get(link)
         sleep(5)
         try:
+            # click in link of jobs
             driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cHeader_lnkCandidatar"]').click()
             sleep(5)
+            # subscribe or not?
             print('Vaga cadastrada!')
+
+            #back to jobs container
             driver.back()
             sleep(5)
             driver.back()
@@ -98,11 +125,21 @@ class Infojobs:
 
     @staticmethod
     def saveHTML(html):
+        """
+        Save target to html file
+        :param html: (WebDriver) file to become html
+        :return: html file: data.txt
+        """
         with open('test.html', 'wb') as file:
             file.write(html.encode('utf-8'))
 
     @staticmethod
     def saveFile(data):
+        """
+        Save data to txt
+        :param data: (WebDriver) specifi the data
+        :return:
+        """
         with open('data.txt', 'w') as file:
             file.write("\n".join(str(item) for item in data))
 
