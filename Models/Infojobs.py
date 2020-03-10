@@ -23,7 +23,7 @@ class Infojobs:
         self.driver = webdriver.Chrome(environ.get("CHROMEDRIVER_PATH"), options=self.options)
         self.driver.get('http://www.infojobs.com.br')
         self.driver.implicitly_wait(10)
-        print(f'{appName} Iniciando...')
+        print(f'{self.appName} Iniciando...')
 
     def login(self):
         """
