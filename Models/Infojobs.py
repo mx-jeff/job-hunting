@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from time import sleep
+from os import environ
 from credentails import user, password
 
 
@@ -11,11 +12,15 @@ class Infojobs:
 
     def __init__(self):
         self.options = Options()
+        self.options.binary_location = environ.get('GOOGLE_CHROME_BIN')
         self.options.add_argument('--disable-notifications')
-        #self.options.add_argument('--headless')
+        self.options.add_argument('--headless')
+        self.options.add_argument('--disable-dev-shm-usage')
+        self.options.add_argument('--no-sandbox')
         self.options.add_experimental_option("detach", True)
+        #self.path = "./chromedriver.exe"
 
-        self.driver = webdriver.Chrome("./chromedriver.exe", options=self.options)
+        self.driver = webdriver.Chrome(environ.get("CHROMEDRIVER_PATH"), options=self.options)
         self.driver.get('http://www.infojobs.com.br')
         self.driver.implicitly_wait(10)
 

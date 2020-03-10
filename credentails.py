@@ -1,6 +1,7 @@
 """
 Credentials Infojobs here, replace the following line below
 """
+import os
 
-user = "Insert your use name"
-password = "Insert your password here"
+user = os.environ.get('USER')
+password = os.environ.get('PASSWORD')
