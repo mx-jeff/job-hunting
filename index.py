@@ -7,7 +7,7 @@ def main():
 
     try:
         jobs.login()
-        jobs.searchList(sys.argv[1])
+        jobs.searchList(str(input("Digite sua vaga: ")))
         jobs.searchOptions()
         jobs.getJob()
         #Infojobs.saveFile(Infojobs.jobsLink)

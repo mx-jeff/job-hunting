@@ -7,7 +7,7 @@ from credentails import user, password
 
 
 class Infojobs:
-    appName = '[JOB-HUNTING]'
+    appName = '[Job-hunting]'
     jobsLink = []
 
     def __init__(self):
@@ -64,7 +64,7 @@ class Infojobs:
 
         self.searchJob.send_keys(str(jobType))
         self.searchJob.send_keys(Keys.ENTER)
-        print(f'{self.appName} Feito!')
+        print(f'{self.appName} Feito!, buscando vagas para {jobType}')
 
     def searchOptions(self):
         """
