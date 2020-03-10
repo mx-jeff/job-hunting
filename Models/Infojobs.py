@@ -7,7 +7,7 @@ from credentails import user, password
 
 
 class Infojobs:
-
+    appName = '[JOB-HUNTING]'
     jobsLink = []
 
     def __init__(self):
@@ -23,12 +23,14 @@ class Infojobs:
         self.driver = webdriver.Chrome(environ.get("CHROMEDRIVER_PATH"), options=self.options)
         self.driver.get('http://www.infojobs.com.br')
         self.driver.implicitly_wait(10)
+        print(f'{appName} Iniciando...')
 
     def login(self):
         """
         Login to Infojobs, with credentials
         :return: None
         """
+        print(f'{self.appName} Tentando logar...')
         self.loginForm = self.driver.find_element_by_xpath('//*[@id="ctl00_cAccess_aLogin"]')
         self.loginForm.click()
 
@@ -40,6 +42,7 @@ class Infojobs:
 
         self.submitButton = self.driver.find_element_by_xpath('//*[@id="ctl00_cAccess_btnLogin"]')
         self.submitButton.click()
+        print(f'{self.appName} Logado com sucesso')
 
     def searchList(self, jobType="Jovem aprendiz"):
         """
@@ -47,6 +50,7 @@ class Infojobs:
         :param jobType: Type of job - String
         :return: None
         """
+        print(print(f'{self.appName} Selecionando vaga...'))
         try:
             self.searchJob = self.driver.find_element_by_xpath(
                 '/html/body/form/div[3]/div[6]/section[1]/div/div/ol/li[1]/input')
@@ -60,12 +64,14 @@ class Infojobs:
 
         self.searchJob.send_keys(str(jobType))
         self.searchJob.send_keys(Keys.ENTER)
+        print(f'{self.appName} Feito!')
 
     def searchOptions(self):
         """
         Select the options to customize job options
         :return: None
         """
+        print(f'{self.appName} Ajustando opções...')
         try:
             # Select to São Paulo
             self.cityOptionSaoPaulo = self.driver.find_element_by_xpath(
@@ -81,12 +87,14 @@ class Infojobs:
                 '//*[@id="ctl00_phMasterPage_cFacetContractWorkType_rptFacet_ctl01_chkItem"]').click()
 
         sleep(10)
+        print(f"{self.appName} Feito!")
 
     def getJob(self):
         """
         Get links from container of jobs to array and clicks one-by-one
         :return: none
         """
+        print(f'{self.appName} Selecionando vagas disponiveis...')
         try:
             sleep(5)
             #jobs container
@@ -117,7 +125,7 @@ class Infojobs:
             driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cHeader_lnkCandidatar"]').click()
             sleep(5)
             # subscribe or not?
-            print('Vaga cadastrada!')
+            print(f'{self.appName} Vaga cadastrada!')
 
             #back to jobs container
             driver.back()
@@ -125,7 +133,7 @@ class Infojobs:
             driver.back()
 
         except Exception as error:
-            print('Link não encontrado!')
+            print(f'{self.appName} Link não encontrado!')
             pass
 
     @staticmethod
@@ -149,5 +157,6 @@ class Infojobs:
             file.write("\n".join(str(item) for item in data))
 
     def quitSearch(self):
+        print(f'{self.appName} Saindo... volte sempre :)')
         self.driver.quit()
 

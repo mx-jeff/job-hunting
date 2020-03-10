@@ -14,7 +14,6 @@ def main():
         jobs.quitSearch()
 
     except Exception as error:
-        print(error)
         jobs.quitSearch()
     
 
