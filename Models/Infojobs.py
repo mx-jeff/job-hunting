@@ -18,7 +18,7 @@ class Infojobs:
         self.options.add_argument('--disable-dev-shm-usage')
         self.options.add_argument('--no-sandbox')
         self.options.add_experimental_option("detach", True)
-        self.path = "./chromedriver.exe" or environ.get("CHROMEDRIVER_PATH")
+        self.path = environ.get("CHROMEDRIVER_PATH")
 
         self.driver = webdriver.Chrome(self.path, options=self.options)
         self.driver.get('http://www.infojobs.com.br')
