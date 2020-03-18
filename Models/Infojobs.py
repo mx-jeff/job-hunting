@@ -18,9 +18,9 @@ class Infojobs:
         self.options.add_argument('--disable-dev-shm-usage')
         self.options.add_argument('--no-sandbox')
         self.options.add_experimental_option("detach", True)
-        #self.path = "./chromedriver.exe"
+        self.path = "./chromedriver.exe" or environ.get("CHROMEDRIVER_PATH")
 
-        self.driver = webdriver.Chrome(environ.get("CHROMEDRIVER_PATH"), options=self.options)
+        self.driver = webdriver.Chrome(self.path, options=self.options)
         self.driver.get('http://www.infojobs.com.br')
         self.driver.implicitly_wait(10)
         print(f'{self.appName} Iniciando...')
@@ -57,7 +57,7 @@ class Infojobs:
         except:
             try:
                 self.searchJob = self.driver.find_element_by_xpath(
-                    '//*[@id="aspnetForm"]/div[3]/div[6]/section[1]/div/div/ol/li[1]/input')
+                    '/html/body/form/div[4]/div[6]/section[1]/div/div/ol/li[1]/input')
 
             except:
                 raise

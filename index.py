@@ -7,13 +7,14 @@ def main():
 
     try:
         jobs.login()
-        jobs.searchList(str(input("Digite sua vaga: ")))
+        jobs.searchList(str(input('[Job-hunting] type your prefered job: ')))
         jobs.searchOptions()
         jobs.getJob()
         #Infojobs.saveFile(Infojobs.jobsLink)
         jobs.quitSearch()
 
     except Exception as error:
+        raise
         jobs.quitSearch()
     
 
