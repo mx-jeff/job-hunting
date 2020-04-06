@@ -1,4 +1,4 @@
-from Models.Infojobs import Infojobs
+from src.Models.Infojobs import Infojobs
 
 
 def searchInfojob():

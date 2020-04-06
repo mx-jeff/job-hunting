@@ -1,8 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-from credentails import user, password
-from config import setSelenium
+from src.credentails import user, password
+from src.config import setSelenium
 
 
 class Infojobs:
