@@ -3,7 +3,7 @@ from src.controllers.vagasComController import searchVagasCom
 
 
 def main():
-    # searchInfojob()
+    searchInfojob()
     searchVagasCom()
 
 
