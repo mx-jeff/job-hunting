@@ -1,9 +1,8 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-from os import environ
 from credentails import user, password
+from config import setSelenium
 
 
 class Infojobs:
@@ -11,18 +10,7 @@ class Infojobs:
     jobsLink = []
 
     def __init__(self):
-        self.options = Options()
-        self.options.binary_location = environ.get('GOOGLE_CHROME_BIN')
-        self.options.add_argument('--disable-notifications')
-        self.options.add_argument('--headless')
-        self.options.add_argument('--disable-dev-shm-usage')
-        self.options.add_argument('--no-sandbox')
-        self.options.add_experimental_option("detach", True)
-        self.path = environ.get("CHROMEDRIVER_PATH")
-
-        self.driver = webdriver.Chrome(self.path, options=self.options)
-        self.driver.get('http://www.infojobs.com.br')
-        self.driver.implicitly_wait(10)
+        self.driver = setSelenium('http://www.infojobs.com.br')
         print(f'{self.appName} Iniciando...')
 
     def login(self):
@@ -96,23 +84,28 @@ class Infojobs:
         """
         print(f'{self.appName} Selecionando vagas disponiveis...')
         try:
-            sleep(5)
-            #jobs container
-            self.jobsContainer = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_resultsGrid"]')
-            # get links
-            self.links = self.jobsContainer.find_elements_by_tag_name('a')
-            for link in self.links:
-                #append to array
-                self.jobsLink.append(link.get_attribute('href').replace(',', ''))
+            while True:
+                sleep(5)
+                
+                #jobs container
+                self.jobsContainer = self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_resultsGrid"]')
+                # get links
+                self.links = self.jobsContainer.find_elements_by_tag_name('a')
+                for link in self.links:
+                    #append to array
+                    self.jobsLink.append(link.get_attribute('href').replace(',', ''))
 
-            #click to links
-            for target in self.jobsLink:
-                self.subscribeJob(target)
+                #click to links
+                for target in self.jobsLink:
+                    self.subscribeJob(target)
+                
 
+                self.driver.find_element_by_xpath('//*[@id="ctl00_phMasterPage_cGrid_Paginator1_lnkNext"]').click()
 
-        except:
+        except Exception as error:
+            print(error)
             pass
-            raise
+            
 
     def subscribeJob(self, link):
         #get driver
@@ -135,26 +128,6 @@ class Infojobs:
         except Exception as error:
             print(f'{self.appName} Link não encontrado!')
             pass
-
-    @staticmethod
-    def saveHTML(html):
-        """
-        Save target to html file
-        :param html: (WebDriver) file to become html
-        :return: html file: data.txt
-        """
-        with open('test.html', 'wb') as file:
-            file.write(html.encode('utf-8'))
-
-    @staticmethod
-    def saveFile(data):
-        """
-        Save data to txt
-        :param data: (WebDriver) specifi the data
-        :return:
-        """
-        with open('data.txt', 'w') as file:
-            file.write("\n".join(str(item) for item in data))
 
     def quitSearch(self):
         print(f'{self.appName} Saindo... volte sempre :)')

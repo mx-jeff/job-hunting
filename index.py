@@ -1,20 +1,8 @@
-from Models.Infojobs import Infojobs
-import sys
+from controllers.infojobsController import searchInfojob
 
 
 def main():
-    jobs = Infojobs()
-
-    try:
-        jobs.login()
-        jobs.searchList(str(input('[Job-hunting] type your prefered job: ')))
-        jobs.searchOptions()
-        jobs.getJob()
-        #Infojobs.saveFile(Infojobs.jobsLink)
-        jobs.quitSearch()
-
-    except Exception as error:
-        jobs.quitSearch()
+    searchInfojob()
     
 
 if __name__ == "__main__":
