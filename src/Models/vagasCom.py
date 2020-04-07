@@ -1,7 +1,9 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from time import sleep
+
 from src.config import setSelenium
 from src.credentails import vagasUser, vagasPassword
-from time import sleep
 
 
 class VagasCom:
@@ -32,6 +34,29 @@ class VagasCom:
         except Exception as error:
             print(f"{appName} Error: {error}")
             self.quitSearch()
+
+    def insertJob(self, job="desenvolvedor front-end"):
+        driver = self.driver
+
+        print(f'{self.appName} A selecionar vaga...')
+        # Insert a select job type and click it!
+        inputJob = driver.find_element_by_xpath('//*[@id="nova-home-search"]')
+        inputJob.send_keys(job)
+        inputJob.send_keys(Keys.ENTER)
+        sleep(5)
+        print(f'{self.appName} Vaga selecionada!')
+
+    def searchOptions(self):
+        # filter jobs-options
+        print(f'{self.appName} A ajustar opções...')
+        driver = self.driver
+        sleep(5)
+
+        filterSp = driver.find_elements_by_partial_link_text('São Paulo')[0].click()
+        sleep(5)
+        filterJunior = driver.find_elements_by_partial_link_text('Júnior/Trainee')[0].click()
+        sleep(5)
+        print(f'{self.appName} Feito!')
 
     def quitSearch(self):
         print(f'{self.appName} Saindo... volte sempre :)')
