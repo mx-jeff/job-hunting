@@ -11,7 +11,7 @@ def setSelenium(link):
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--no-sandbox')
     options.add_experimental_option("detach", True)
-    path = environ.get("CHROMEDRIVER_PATH") or "./chromedriver.exe"
+    path = environ.get("CHROMEDRIVER_PATH") # or "./chromedriver.exe"
 
     driver = webdriver.Chrome(path, options=options)
     driver.get(link)
