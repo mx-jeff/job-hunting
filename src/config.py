@@ -18,3 +18,4 @@ def setSelenium(link):
     driver.implicitly_wait(10)
 
     return driver
+
