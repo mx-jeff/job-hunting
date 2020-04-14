@@ -7,9 +7,12 @@ def searchVagasCom():
     vagas = VagasCom()
     try:
         vagas.login()
-        vagas.insertJob()
+        vagas.insertJob(str(input(f'[Job-hunting] Vaga: ')))
         vagas.searchOptions()
-    
+        vagas.selectJobs()
+        vagas.subscribeJob()
+        vagas.quitSearch()
+
     except Exception as error:
         raise
         vagas.quitSearch()
