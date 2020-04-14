@@ -14,6 +14,5 @@ def searchVagasCom():
         vagas.quitSearch()
 
     except Exception as error:
-        raise
         vagas.quitSearch()
     
