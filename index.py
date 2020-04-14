@@ -4,10 +4,10 @@ import sys
 
 
 def main():
-    option = sys.argv[1]
-    str(option).lower()
-
     try:
+        option = sys.argv[1]
+        str(option).lower()
+
         if option == "infojobs":
             searchInfojob()
 

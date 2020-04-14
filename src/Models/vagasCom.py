@@ -52,10 +52,14 @@ class VagasCom:
         print(f'{self.appName} A ajustar opções...')
         driver = self.driver
 
-        filterSp = driver.find_elements_by_partial_link_text('São Paulo')[0].click()
+
+        filterSp = driver.find_elements_by_partial_link_text('São Paulo')[0]
+        driver.execute_script("arguments[0].click();", filterSp)
+        
         timer()
-        filterJunior = driver.find_elements_by_partial_link_text('Júnior/Trainee')[0].click()
-                    
+        filterJunior = driver.find_elements_by_partial_link_text('Júnior/Trainee')[0]
+        driver.execute_script("arguments[0].click();", filterJunior)
+
         print(f'{self.appName} Feito!')
 
     def selectJobs(self):
