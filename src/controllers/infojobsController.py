@@ -1,12 +1,12 @@
 from src.Models.Infojobs import Infojobs
 
 
-def searchInfojob():
+def searchInfojob(jobTarget):
     jobs = Infojobs()
 
     try:
         jobs.login()
-        jobs.searchList(str(input('[Job-hunting] Digite a vaga: ')))
+        jobs.searchList(jobTarget)
         jobs.searchOptions()
         jobs.getJob()
         jobs.quitSearch()

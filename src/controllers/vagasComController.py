@@ -3,11 +3,11 @@ from time import sleep
 from src.Models.vagasCom import VagasCom
 
 
-def searchVagasCom():
+def searchVagasCom(targetJob):
     vagas = VagasCom()
     try:
         vagas.login()
-        vagas.insertJob(str(input(f'[Job-hunting] Vaga: ')))
+        vagas.insertJob(targetJob)
         vagas.searchOptions()
         vagas.selectJobs()
         vagas.subscribeJob()
