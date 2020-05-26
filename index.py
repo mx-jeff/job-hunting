@@ -21,5 +21,6 @@ def main():
     except IndexError:
         print('Insira um site de vagas!')
 
+
 if __name__ == "__main__":
     main()

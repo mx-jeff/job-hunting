@@ -14,6 +14,5 @@ def searchVagasCom(targetJob):
         vagas.quitSearch()
 
     except Exception as error:
-        raise
+        print("Algum problema ocorreu e/ou as inforamções estão erradas!")
         vagas.quitSearch()
-    
