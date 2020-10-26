@@ -29,12 +29,12 @@ class VagasCom:
             driver.find_element_by_xpath('//*[@id="login_candidatos_form_senha"]').send_keys(vagasPassword)
             driver.find_element_by_xpath('//*[@id="submitLogin"]').click()
 
-            print(f'{self.appName} Logado com sucesso')
-            timer()
-
         except Exception as error:
-            print(f"{appName} Error: {error}")
+            print(f"{self.appName} Error: {error}")
             self.quitSearch()
+
+        print(f'{self.appName} Logado com sucesso')
+        timer()
 
     def insertJob(self, job):
         driver = self.driver
@@ -51,14 +51,19 @@ class VagasCom:
         # filter jobs-options
         print(f'{self.appName} A ajustar opções...')
         driver = self.driver
-
+        timer()
 
         filterSp = driver.find_elements_by_partial_link_text('São Paulo')[0]
         driver.execute_script("arguments[0].click();", filterSp)
         
         timer()
-        filterJunior = driver.find_elements_by_partial_link_text('Júnior/Trainee')[0]
-        driver.execute_script("arguments[0].click();", filterJunior)
+        try:
+            filterJunior = driver.find_elements_by_partial_link_text('Júnior/Trainee')[0]
+            driver.execute_script("arguments[0].click();", filterJunior)
+
+        except IndexError:
+            print("Não há vagas para junior :(")
+            pass
 
         print(f'{self.appName} Feito!')
 
