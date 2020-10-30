@@ -18,9 +18,23 @@ class Infojobs:
         Login to Infojobs, with credentials
         :return: None
         """
-        print(f'{self.appName} Tentando logar...')
-        self.loginForm = self.driver.find_element_by_xpath('//*[@id="ctl00_cAccess_aLogin"]')
-        self.loginForm.click()
+        print(f'{self.appName} Tentando logar...')        
+        
+        try:
+            self.loginForm = self.driver.find_element_by_xpath('//*[@id="ctl00_cAccess_aLogin"]')
+            self.loginForm.click()
+        
+        except:
+            try:
+                print(f"{self.appName} Verifing if it's cookie")
+                self.clearCookie()
+                sleep(5)
+                self.loginForm = self.driver.find_element_by_xpath('//*[@id="ctl00_cAccess_aLogin"]')
+                self.loginForm.click()
+
+            except Exception as error:
+                print(f'[ERRO] {error}, contate o administrador')
+                self.quitSearch()
 
         self.inputForm = self.driver.find_element_by_xpath('//*[@id="Username"]')
         self.inputForm.send_keys(user)
@@ -128,6 +142,9 @@ class Infojobs:
         except Exception as error:
             print(f'{self.appName} Link não encontrado!')
             pass
+
+    def clearCookie(self):
+        self.driver.find_element_by_id('AllowCookiesButton').click()
 
     def quitSearch(self):
         print(f'{self.appName} Saindo... volte sempre :)')

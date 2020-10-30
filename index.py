@@ -1,10 +1,10 @@
 from src.controllers.infojobsController import searchInfojob
 from src.controllers.vagasComController import searchVagasCom
-
+import sys
 
 def main():
-    """
-        try:
+    
+    try:
         option = sys.argv[1]
         job = str(sys.argv[2]).lower()
         str(option).lower()
@@ -20,28 +20,27 @@ def main():
 
     except IndexError:
         print('Insira um site de vagas!')
-    :return:
-    """
+    
 
-    try:
-        print("~" * 40)
-        print(str("BUSCADOR DE EMPREGOS").center(40))
-        print("~" * 40)
+    # try:
+    #     print("~" * 40)
+    #     print(str("BUSCADOR DE EMPREGOS").center(40))
+    #     print("~" * 40)
 
-        option = str(input("Digite o site de busca: (infojobs ou vagas.com) ")).lower().strip()
-        job = str(input('Selecione a vaga desejada: '))
+    #     option = str(input("Digite o site de busca: (infojobs ou vagas.com) ")).lower().strip()
+    #     job = str(input('Selecione a vaga desejada: '))
 
-        if option == "infojobs":
-            searchInfojob(job)
+    #     if option == "infojobs":
+    #         searchInfojob(job)
 
-        elif option == "vagas.com":
-            searchVagasCom(job)
+    #     elif option == "vagas.com":
+    #         searchVagasCom(job)
         
-        else:
-            print('Insira um site de vagas!')
+    #     else:
+    #         print('Insira um site de vagas!')
 
-    except IndexError:
-        print('Insira um site de vagas!')
+    # except IndexError:
+    #     print('Insira um site de vagas!')
 
 
 if __name__ == "__main__":
