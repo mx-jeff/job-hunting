@@ -12,5 +12,6 @@ def searchInfojob(jobTarget):
         jobs.quitSearch()
 
     except Exception as error:
+        
         print("Algum problema ocorreu e/ou as inforamções estão erradas!")
         jobs.quitSearch()
