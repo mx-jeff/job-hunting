@@ -26,7 +26,7 @@ class Infojobs:
         
         except:
             try:
-                print(f"{self.appName} Verifing if it's cookie")
+                print(f"{self.appName} Passando verificação de cookies")
                 self.clearCookie()
                 sleep(5)
                 self.loginForm = self.driver.find_element_by_xpath('//*[@id="ctl00_cAccess_aLogin"]')
@@ -140,7 +140,7 @@ class Infojobs:
             driver.back()
 
         except Exception as error:
-            print(f'{self.appName} Link não encontrado!')
+            print(f'{self.appName} Vaga não encontrado!')
             pass
 
     def clearCookie(self):

@@ -1,5 +1,6 @@
 from src.controllers.infojobsController import searchInfojob
 from src.controllers.vagasComController import searchVagasCom
+from src.controllers.apinfoController import searchApinfo
 import sys
 
 def main():
@@ -14,6 +15,9 @@ def main():
 
         elif option == "vagascom":
             searchVagasCom(job)
+
+        elif option == "apinfo":
+            searchApinfo(job)
 
         else:
             print('Insira um site de vagas!')
