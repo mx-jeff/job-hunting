@@ -12,13 +12,13 @@ class VagasCom:
 
     def __init__(self):
         self.driver = setSelenium("https://www.vagas.com.br")
-        print(f'{self.appName} Iniciando...')
+        output(f'{self.appName} Iniciando...')
 
     def login(self):
         driver = self.driver
         
         try:
-            print(f'{self.appName} Tentando logar...')
+            output(f'{self.appName} Tentando logar...')
 
             # Click on login page
             driver.find_element_by_xpath('//*[@id="loginCandidatoDesktop"]').click()
@@ -30,26 +30,26 @@ class VagasCom:
             driver.find_element_by_xpath('//*[@id="submitLogin"]').click()
 
         except Exception as error:
-            print(f"{self.appName} Error: {error}")
+            output(f"{self.appName} Error: {error}")
             self.quitSearch()
 
-        print(f'{self.appName} Logado com sucesso')
+        output(f'{self.appName} Logado com sucesso')
         timer()
 
     def insertJob(self, job):
         driver = self.driver
 
-        print(f'{self.appName} A selecionar vaga...')
+        output(f'{self.appName} A selecionar vaga...')
         # Insert a select job type and click it!
         inputJob = driver.find_element_by_xpath('//*[@id="nova-home-search"]')
         inputJob.send_keys(job)
         inputJob.send_keys(Keys.ENTER)
         timer()
-        print(f'{self.appName} Vaga selecionada!')
+        output(f'{self.appName} Vaga selecionada!')
 
     def searchOptions(self):
         # filter jobs-options
-        print(f'{self.appName} A ajustar opções...')
+        output(f'{self.appName} A ajustar opções...')
         driver = self.driver
         timer()
 
@@ -62,13 +62,13 @@ class VagasCom:
             driver.execute_script("arguments[0].click();", filterJunior)
 
         except IndexError:
-            print("Não há vagas para junior :(")
+            output("Não há vagas para junior :(")
             pass
 
-        print(f'{self.appName} Feito!')
+        output(f'{self.appName} Feito!')
 
     def selectJobs(self):
-        print(f'{self.appName} Listando Vagas...')
+        output(f'{self.appName} Listando Vagas...')
         driver = self.driver
 
         container = driver.find_element_by_id('pesquisaResultado')
@@ -79,7 +79,7 @@ class VagasCom:
         # save all links 
         self.targetLink = [link.get_attribute('href') for link in links]
         
-        print(f'{self.appName} Feito!')
+        output(f'{self.appName} Feito!')
         return self.targetLink
 
     @staticmethod
@@ -88,7 +88,7 @@ class VagasCom:
             file.write(html)
 
     def subscribeJob(self):
-        print(f'{self.appName} Se inscrevendo na vaga...')
+        output(f'{self.appName} Se inscrevendo na vaga...')
         driver = self.driver
 
         # Job page            
@@ -102,23 +102,23 @@ class VagasCom:
                     timer()
                     alert(driver)
                     driver.find_element_by_xpath('//*[@id="LtC"]/td[1]/table/tbody/tr/td[1]/a').click()
-                    print(f'{self.appName} Inscrição realizada com sucesso :) ')
+                    output(f'{self.appName} Inscrição realizada com sucesso :) ')
                     driver.back()
                     driver.back()
 
                 except:
-                    print(f'{self.appName} Inscrição realizada com sucesso :) ')
+                    output(f'{self.appName} Inscrição realizada com sucesso :) ')
                     driver.back()
                 
             except NoSuchElementException:
-                print(f'{self.appName} Inscrição realizada anteriormente ;) ')
+                output(f'{self.appName} Inscrição realizada anteriormente ;) ')
                 driver.back()
 
             except Exception as error: 
-                print(f'{self.appName} Erro na inscrição :( \nError: {error}')
+                output(f'{self.appName} Erro na inscrição :( \nError: {error}')
 
-            print(f'{self.appName} Feito!')
+            output(f'{self.appName} Feito!')
 
     def quitSearch(self):
-        print(f'{self.appName} Saindo... volte sempre :)')
+        output(f'{self.appName} Saindo... volte sempre :)')
         self.driver.quit()
