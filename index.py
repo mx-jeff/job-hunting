@@ -6,6 +6,18 @@ import sys
 import eel
 
 
+@eel.expose
+def send(conpany, job):
+    if conpany == "infojobs":
+        searchInfojob(job)
+
+    elif conpany == "vagas.com":
+        searchVagasCom(job)
+    
+    else:
+        output('Insira um site de vagas!')
+
+
 def main():
     
     # try:
@@ -31,23 +43,15 @@ def main():
     eel.init('frontend')
 
     try:
-        output("~" * 40)
-        output(str("BUSCADOR DE EMPREGOS").center(40))
-        output("~" * 40)
+        # output("~" * 40)
+        # output(str("BUSCADOR DE EMPREGOS").center(40))
+        # output("~" * 40)
 
-        option = str(input("Digite o site de busca: (infojobs ou vagas.com) ")).lower().strip()
-        job = str(input('Selecione a vaga desejada: '))
+        # option = str(input("Digite o site de busca: (infojobs ou vagas.com) ")).lower().strip()
+        # job = str(input('Selecione a vaga desejada: '))
 
-        eel.start('index.html', size=(600, 300))
+        eel.start('index.html', size=(600, 600))
 
-        if option == "infojobs":
-            searchInfojob(job)
-
-        elif option == "vagas.com":
-            searchVagasCom(job)
-        
-        else:
-            output('Insira um site de vagas!')
 
     except IndexError:
         output('Insira um site de vagas!')

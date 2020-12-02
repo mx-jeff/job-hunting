@@ -53,7 +53,7 @@ class Infojobs:
         :param jobType: Type of job - String
         :return: None
         """
-        output(output(f'{self.appName} Selecionando vaga...'))
+        output(f'{self.appName} Selecionando vaga...')
         try:
             self.searchJob = self.driver.find_element_by_xpath(
                 '/html/body/form/div[3]/div[6]/section[1]/div/div/ol/li[1]/input')

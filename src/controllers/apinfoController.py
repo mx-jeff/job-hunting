@@ -1,5 +1,6 @@
 from src.Models.apinfo import Apinfo
 
+
 def searchApinfo(job='python'):
     apinfo = Apinfo()
     apinfo.searchJob(job)

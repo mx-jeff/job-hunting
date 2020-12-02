@@ -1,4 +1,5 @@
 from src.Models.Infojobs import Infojobs
+from src.utils.output import output
 
 
 def searchInfojob(jobTarget):
@@ -13,5 +14,5 @@ def searchInfojob(jobTarget):
 
     except Exception as error:
         
-        print("Algum problema ocorreu e/ou as inforamções estão erradas!")
+        output("Algum problema ocorreu e/ou as inforamções estão erradas!")
         jobs.quitSearch()

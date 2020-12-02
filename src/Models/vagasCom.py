@@ -5,6 +5,7 @@ from src.utils import timer, alert
 
 from src.config import setSelenium
 from src.credentails import vagasUser, vagasPassword
+from src.utils.output import output
 
 
 class VagasCom:

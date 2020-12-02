@@ -7,12 +7,12 @@ const text = document.querySelector('#log')
 eel.expose(output)
 text.innerHTML = ``
 function output(texto){
-    text.innerHTML += `Bot: ${texto} <br>`
+    text.innerHTML += `${texto} </br>`
 }
-
 
 // Enviar ao backend
 btn.addEventListener('click',() => {
-    text.innerHTML = `Carregando... <br>`
+    btn.disabled = true
+    text.innerHTML = `Carregando...</br>`
     eel.send(empresa.value, vaga.value)
 })

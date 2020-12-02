@@ -1,3 +1,6 @@
+import eel
+import sys
+
 def table(href, text):
     tamanho = len(href) + 4
     print('~' * tamanho)
@@ -15,3 +18,7 @@ def timer():
 def alert(browser):
     alert = browser.switch_to.alert
     alert.accept()
+
+@eel.expose
+def close():
+    return sys.exit()

@@ -1,5 +1,5 @@
 import eel
 
-def output(msg):
+def output(*msg):
     print(msg)
-    # eel.output(msg)
+    eel.output(msg)
