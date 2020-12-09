@@ -10,6 +10,12 @@ function output(texto){
     text.innerHTML += `${texto} </br>`
 }
 
+// Reativar botão
+eel.expose(enableButton)
+function enableButton(){
+    btn.disabled = false
+}
+
 // Enviar ao backend
 btn.addEventListener('click',() => {
     btn.disabled = true

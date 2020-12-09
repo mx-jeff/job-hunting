@@ -141,7 +141,7 @@ class Infojobs:
             driver.back()
 
         except Exception as error:
-            output(f'{self.appName} Vaga não encontrado!')
+            output(f'{self.appName} Vaga não encontrada!')
             pass
 
     def clearCookie(self):

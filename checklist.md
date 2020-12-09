@@ -18,6 +18,6 @@
 - [ ] implement front-end
     - [x] basic bootstrap template
     - [ ] controls
-        - [ ] add select in conpanies
+        - [x] add select in conpanies
         - [ ] add type controls
     - [ ] implement animations (snippers e etc)
