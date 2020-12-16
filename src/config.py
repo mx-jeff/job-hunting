@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from os import environ
 
+from src.utils.selenium_path import resource_path
+
 
 def setSelenium(link):
     options = Options()
@@ -12,7 +14,8 @@ def setSelenium(link):
     options.add_argument("--disable-logging")
     options.add_experimental_option("detach", True)
     options.add_argument('--headless')
-    path = environ.get("CHROMEDRIVER_PATH") or "./chromedriver.exe"
+
+    path = environ.get("CHROMEDRIVER_PATH") or resource_path("./chromedriver.exe")
 
     driver = webdriver.Chrome(path, options=options)
     driver.get(link)

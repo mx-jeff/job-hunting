@@ -8,7 +8,7 @@
         - [ ] linkedin
 
     - [ ] features
-        - [ ] implement marker when it's done
+        - [x] implement marker when it's done
         - [x] implement button disable when process
 
     - [ ] Conpany credentials
@@ -20,4 +20,11 @@
     - [ ] controls
         - [x] add select in conpanies
         - [ ] add type controls
+        - [ ] add quit search for job
+        - [ ] add clear output
     - [ ] implement animations (snippers e etc)
+    - [ ] close app when user close interface
+
+- [ ] production
+    - [x] build app
+    - [ ] hide cromedriver console 
