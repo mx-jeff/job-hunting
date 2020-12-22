@@ -4,7 +4,7 @@ from time import sleep
 from src.credentails import user, password
 from src.config import setSelenium
 from src.utils.output import output
-
+import eel
 
 class Infojobs:
     appName = '[Job-hunting]'
@@ -47,7 +47,7 @@ class Infojobs:
         self.submitButton.click()
         output(f'{self.appName} Logado com sucesso')
 
-    def searchList(self, jobType="Jovem aprendiz"):
+    def searchList(self, jobType):
         """
         Go to main page and get the selected job
         :param jobType: Type of job - String
@@ -150,4 +150,5 @@ class Infojobs:
     def quitSearch(self):
         output(f'{self.appName} Saindo... volte sempre :)')
         self.driver.quit()
+        eel.enableButton()
 

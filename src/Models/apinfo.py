@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 from src.config import setSelenium
+import eel
 
 class Apinfo:
     appName = '[APinfo]'
@@ -72,3 +73,4 @@ class Apinfo:
         '''
         print(f'{self.appName} closing...')
         self.driver.quit()
+        eel.enableButton()

@@ -6,7 +6,7 @@ from src.utils import timer, alert
 from src.config import setSelenium
 from src.credentails import vagasUser, vagasPassword
 from src.utils.output import output
-
+import eel
 
 class VagasCom:
     appName = "[Job-hunting]"
@@ -42,9 +42,8 @@ class VagasCom:
 
         output(f'{self.appName} A selecionar vaga...')
         # Insert a select job type and click it!
-        inputJob = driver.find_element_by_xpath('//*[@id="nova-home-search"]')
-        inputJob.send_keys(job)
-        inputJob.send_keys(Keys.ENTER)
+        inputJob = driver.find_element_by_xpath('//*[@id="root"]/div/header/div[1]/div[3]/div/section/div[1]/div[1]/input').send_keys(job)
+        driver.find_element_by_xpath('//*[@id="root"]/div/header/div[1]/div[3]/div/section/div[1]/div[3]/button').click()
         timer()
         output(f'{self.appName} Vaga selecionada!')
 
@@ -123,3 +122,4 @@ class VagasCom:
     def quitSearch(self):
         output(f'{self.appName} Saindo... volte sempre :)')
         self.driver.quit()
+        eel.enableButton()
