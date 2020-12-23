@@ -1,7 +1,7 @@
 from src.controllers.infojobsController import searchInfojob
 from src.controllers.vagasComController import searchVagasCom
 from src.controllers.apinfoController import searchApinfo
-from src.utils.output import output
+from src.utils.output import output, checkBtn
 import sys
 import eel
 
@@ -60,7 +60,7 @@ def main():
 
     except IndexError:
         output('Insira um site de vagas!')
-        eel.enableButton()
+        checkBtn()
 
 if __name__ == "__main__":
     main()

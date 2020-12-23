@@ -5,7 +5,7 @@ from src.utils import timer, alert
 
 from src.config import setSelenium
 from src.credentails import vagasUser, vagasPassword
-from src.utils.output import output
+from src.utils.output import output, checkBtn
 import eel
 
 class VagasCom:
@@ -53,8 +53,12 @@ class VagasCom:
         driver = self.driver
         timer()
 
-        filterSp = driver.find_elements_by_partial_link_text('São Paulo')[0]
-        driver.execute_script("arguments[0].click();", filterSp)
+        try:
+            filterSp = driver.find_elements_by_partial_link_text('São Paulo')[0]
+            driver.execute_script("arguments[0].click();", filterSp)
+        
+        except IndexError:
+            pass
         
         timer()
         try:
@@ -122,4 +126,4 @@ class VagasCom:
     def quitSearch(self):
         output(f'{self.appName} Saindo... volte sempre :)')
         self.driver.quit()
-        eel.enableButton()
+        checkBtn()

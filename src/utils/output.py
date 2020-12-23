@@ -1,5 +1,17 @@
 import eel
 
+graphInterface = True
+
 def output(*msg):
+    if graphInterface:
+        eel.output(msg)
+    
     print(msg)
-    eel.output(msg)
+    
+
+def checkBtn():
+    if not graphInterface:
+        return
+
+    eel.enableButton()
+        

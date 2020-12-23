@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 from src.credentails import user, password
 from src.config import setSelenium
-from src.utils.output import output
+from src.utils.output import output, checkBtn
 import eel
 
 class Infojobs:
@@ -150,5 +150,5 @@ class Infojobs:
     def quitSearch(self):
         output(f'{self.appName} Saindo... volte sempre :)')
         self.driver.quit()
-        eel.enableButton()
+        checkBtn()
 
