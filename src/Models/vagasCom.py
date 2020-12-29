@@ -9,7 +9,7 @@ from src.utils.output import output, checkBtn
 import eel
 
 class VagasCom:
-    appName = "[Job-hunting]"
+    appName = "[Vagas.com]"
 
     def __init__(self):
         self.driver = setSelenium("https://www.vagas.com.br")
@@ -66,7 +66,7 @@ class VagasCom:
             driver.execute_script("arguments[0].click();", filterJunior)
 
         except IndexError:
-            output("Não há vagas para junior :(")
+            output(f"{appName} Não há vagas para junior :(")
             pass
 
         output(f'{self.appName} Feito!')

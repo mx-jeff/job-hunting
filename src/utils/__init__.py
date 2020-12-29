@@ -17,8 +17,4 @@ def timer():
 
 def alert(browser):
     alert = browser.switch_to.alert
-    alert.accept()
-
-@eel.expose
-def close():
-    return sys.exit()
+    alert.accept()    

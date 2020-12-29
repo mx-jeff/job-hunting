@@ -13,8 +13,7 @@
         - [ ] split interfaces
 
     - [ ] Conpany credentials
-        - [ ] page subscriber for get data
-        - [ ] a database to store company data and add accounts
+        - [ ] page subscriber for get data or a database to store company data and add accounts
 
 - [ ] implement front-end
     - [x] basic bootstrap template

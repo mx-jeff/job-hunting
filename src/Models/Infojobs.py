@@ -7,7 +7,7 @@ from src.utils.output import output, checkBtn
 import eel
 
 class Infojobs:
-    appName = '[Job-hunting]'
+    appName = '[Infojobs]'
     jobsLink = []
 
     def __init__(self):

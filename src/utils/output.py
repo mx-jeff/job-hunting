@@ -1,6 +1,7 @@
 import eel
+import os
 
-graphInterface = True
+graphInterface = os.environ.get('GRAPH_INTERFACE')
 
 def output(*msg):
     if graphInterface:
