@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/robot.png" />
+        <title>Job hunting</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/index.css">
+    </head>
+
+    <body>
+        <header class="container my-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Job hunting</h1>
+                </div>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="#">
+                        <!-- <div class="form-group">
+                            <label for="empresa"></label>
+                            <input type="text" id="empresa" class="form-control"
+                                placeholder="Infojobs, vagas.com, apinfo..." aria-describedby="helpId">
+                        </div> -->
+
+                        <div class="form-group">
+                          <label for="empresa"></label>
+                          <select class="form-control"id="empresa">
+                            <option value="#" disabled selected>Escolha uma empresa</option>
+                            <option value="infojobs">Infojobs</option>
+                            <option value="vagas.com">Vagas.com</option>
+                            <option value="apinfo">APinfo</option>
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vaga"></label>
+                            <input type="text" id="vaga" class="form-control" placeholder="Digite a vaga selecionada..."
+                                aria-describedby="helpId">
+                        </div>
+
+                        <input type="submit" id="send" class="btn btn-primary" value="Buscar">
+                        <button id="stop" class="btn btn-primary" disabled>Parar busca</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <!-- <div class="form-group">
+                        <label for="">Detalhes</label>
+                        <textarea class="form-control" id="log" rows="3"></textarea>
+                    </div> -->
+
+                    <p id="log"></p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/eel.js"></script>
+        <script src="./script.js"></script>
+    </body>
+
+</html>

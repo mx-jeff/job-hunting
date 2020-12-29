@@ -1,5 +1,6 @@
 from src.Models.Infojobs import Infojobs
-
+from src.utils.output import output, checkBtn
+import eel
 
 def searchInfojob(jobTarget):
     jobs = Infojobs()
@@ -12,5 +13,6 @@ def searchInfojob(jobTarget):
         jobs.quitSearch()
 
     except Exception as error:
-        print("Algum problema ocorreu e/ou as inforamções estão erradas!")
+        output("Algum problema ocorreu e/ou as inforamções estão erradas!")
+        checkBtn()
         jobs.quitSearch()

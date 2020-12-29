@@ -1,6 +1,9 @@
 from time import sleep
 
 from src.Models.vagasCom import VagasCom
+from src.utils.output import output, checkBtn
+
+import eel
 
 
 def searchVagasCom(targetJob):
@@ -14,5 +17,7 @@ def searchVagasCom(targetJob):
         vagas.quitSearch()
 
     except Exception as error:
-        print("Algum problema ocorreu e/ou as inforamções estão erradas!")
+        output("Algum problema ocorreu e/ou as informações estão erradas!")
         vagas.quitSearch()
+        checkBtn()
+        

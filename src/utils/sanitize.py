@@ -7,8 +7,8 @@ def sanitizeWords(dados):
     return dados
 
 
-def credentialsFile():
-    with open('users.txt','r') as txt:
-        linhas = (txt.readlines())
-        dados = sanitizeWords(linhas)    
-        return dados
+# def credentialsFile():
+#     with open('users.txt','r') as txt:
+#         linhas = (txt.readlines())
+#         dados = sanitizeWords(linhas)    
+#         return dados
