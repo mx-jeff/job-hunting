@@ -10,7 +10,7 @@
     - [ ] features
         - [x] implement marker when it's done
         - [x] implement button disable when process
-        - [ ] split interfaces
+        - [x] split interfaces
 
     - [ ] Conpany credentials
         - [ ] page subscriber for get data or a database to store company data and add accounts
@@ -30,6 +30,6 @@
     - [ ] hide cromedriver console 
 
 - [ ] Bugs
-    - [ ] selenium open blank page when raches in job list in vagas.com [search..]
-    - [ ] selenium just open a blank page when invoke driver.get() [search..]
-    - [ ] search jobs in adm
+    - [?] selenium open blank page when raches in job list in vagas.com [search..]
+    - [?] selenium just open a blank page when invoke driver.get() [search..]
+    - [?] search jobs in adm

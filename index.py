@@ -2,12 +2,16 @@ from src.controllers.infojobsController import searchInfojob
 from src.controllers.vagasComController import searchVagasCom
 from src.controllers.apinfoController import searchApinfo
 from src.utils.output import output, checkBtn
+from src.config import configVar
+
+import os
 import sys
 import eel
 
+
 cli = False
-graphInferface = True
-command = False
+graphInferface = configVar['graphInferface']
+command = configVar['command']
 
 @eel.expose
 def send(conpany, job):

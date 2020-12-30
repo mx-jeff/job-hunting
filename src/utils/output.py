@@ -1,7 +1,9 @@
 import eel
 import os
 
-graphInterface = os.environ.get('GRAPH_INTERFACE')
+from src.config import configVar
+
+graphInterface = configVar['graphInferface']
 
 def output(*msg):
     if graphInterface:
