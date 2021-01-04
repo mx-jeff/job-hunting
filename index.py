@@ -13,6 +13,7 @@ cli = False
 graphInferface = configVar['graphInferface']
 command = configVar['command']
 
+
 @eel.expose
 def send(conpany, job):
     if conpany == "infojobs":
