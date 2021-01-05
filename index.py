@@ -9,7 +9,7 @@ import sys
 import eel
 
 
-cli = False
+cli = configVar['cli']
 graphInferface = configVar['graphInferface']
 command = configVar['command']
 

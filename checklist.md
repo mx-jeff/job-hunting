@@ -11,6 +11,7 @@
         - [x] implement marker when it's done
         - [x] implement button disable when process
         - [x] split interfaces
+        - [ ] list of jobs that have been subscribed
 
     - [ ] Conpany credentials
         - [ ] page subscriber for get data or a database to store company data and add accounts
