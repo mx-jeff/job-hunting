@@ -23,12 +23,6 @@
             <div class="row">
                 <div class="col-12">
                     <form action="#">
-                        <!-- <div class="form-group">
-                            <label for="empresa"></label>
-                            <input type="text" id="empresa" class="form-control"
-                                placeholder="Infojobs, vagas.com, apinfo..." aria-describedby="helpId">
-                        </div> -->
-
                         <div class="form-group">
                           <label for="empresa"></label>
                           <select class="form-control"id="empresa">
@@ -45,7 +39,35 @@
                                 aria-describedby="helpId">
                         </div>
 
+                        <div id="credentails" class="credentails collapse">
+
+                            <div class="form-group">
+                                <label for="email-infojobs">Infojobs</label>
+                                <input type="text" id="email-infojobs" class="form-control" placeholder="E-mail do infojobs"
+                                    aria-describedby="helpId">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="passwornd-infojobs"></label>
+                                <input type="password" id="password-infojobs" class="form-control" placeholder="Senha do infojobs"
+                                    aria-describedby="helpId">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email-vagas">Vagas.com</label>
+                                <input type="text" id="email-vagas" class="form-control" placeholder="E-mail vagas.com"
+                                    aria-describedby="helpId">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="passwornd-vagas"></label>
+                                <input type="password" id="password-vagas" class="form-control" placeholder="Senha vagas.com"
+                                    aria-describedby="helpId">
+                            </div>
+                        </div>
+
                         <input type="submit" id="send" class="btn btn-primary" value="Buscar">
+                        <button data-toggle="collapse" class="btn btn-info" data-target="#credentails">Login</button>
                         <button id="stop" class="btn btn-secondary" disabled>Parar busca</button>
                     </form>
                 </div>

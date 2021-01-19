@@ -34,3 +34,4 @@
     - [?] selenium open blank page when raches in job list in vagas.com [search..]
     - [?] selenium just open a blank page when invoke driver.get() [search..]
     - [?] search jobs in adm
+    - [ ] collapse reset yourself

@@ -3,8 +3,8 @@ const vaga = document.querySelector('#vaga')
 const btn = document.querySelector('#send')
 const text = document.querySelector('#log')
 const stopBtn = document.querySelector('#stop')
+const credentails = document.querySelectorAll('.credentails input[type=text], input[type=password]')
 let loadSpin
-
 
 // Mostrar na tela
 eel.expose(output)
@@ -26,12 +26,14 @@ function enableButton(){
 
 // Enviar ao backend
 btn.addEventListener('click',() => {
+    const [email_infojobs, password_infojobs, email_vagas, password_vagas] = credentails
+
     btn.disabled = true
     text.innerHTML = `<div id="load" class="d-flex align-items-center">
     <strong>Carregando...</strong>
     <div class="spinner-border ml-auto text-primary" role="status" aria-hidden="true"></div>
     </div></br>`
-    eel.send(empresa.value, vaga.value)
+    eel.send(empresa.value, vaga.value, email_infojobs.value, password_infojobs.value, email_vagas.value, password_vagas.value)
     loadSpin = document.querySelector('#load')
 })
 
