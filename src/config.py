@@ -24,6 +24,6 @@ def setSelenium(link):
     return driver
 
 configVar = {}
-configVar['graphInferface'] = True
+configVar['graphInferface'] = False
 configVar['cli'] = False
-configVar['command'] = False
+configVar['command'] = True
