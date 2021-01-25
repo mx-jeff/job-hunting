@@ -36,10 +36,10 @@ def main():
             str(option).lower()
 
             if option == "infojobs":
-                searchInfojob(job)
+                searchInfojob(job, False, False)
 
             elif option == "vagascom":
-                searchVagasCom(job)
+                searchVagasCom(job, False, False)
 
             elif option == "apinfo":
                 searchApinfo(job)
