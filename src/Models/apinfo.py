@@ -28,8 +28,7 @@ class Apinfo:
         self.searchBar = driver.find_element_by_id('i-busca')
         self.searchBar.send_keys(job)
         self.searchBar.send_keys(Keys.ENTER)
-        print(f'{self.appName} Feito!, buscando vagas para {job}')
-        
+        print(f'{self.appName} Feito!, buscando vagas para {job}')      
 
     def selectJob(self):
         print(f'{self.appName} Vaga localizada!')
@@ -53,7 +52,6 @@ class Apinfo:
         driver.find_element_by_id('chave3').send_keys(PASSWORD)
 
         driver.find_element_by_xpath('//*[@id="form-incluir-cv"]/div[6]/input').click()
-
 
     def wait(self, secs=10):
         '''

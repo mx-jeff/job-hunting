@@ -2,11 +2,11 @@ from src.Models.Infojobs import Infojobs
 from src.utils.output import output, checkBtn
 import eel
 
-def searchInfojob(jobTarget):
+def searchInfojob(jobTarget, login, password):
     jobs = Infojobs()
 
     try:
-        jobs.login()
+        jobs.login(login, password)
         jobs.searchList(jobTarget)
         jobs.searchOptions()
         jobs.getJob()

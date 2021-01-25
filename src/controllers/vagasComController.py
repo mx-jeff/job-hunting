@@ -6,10 +6,10 @@ from src.utils.output import output, checkBtn
 import eel
 
 
-def searchVagasCom(targetJob):
+def searchVagasCom(targetJob, login, password):
     vagas = VagasCom()
     try:
-        vagas.login()
+        vagas.login(login, password)
         vagas.insertJob(targetJob)
         vagas.searchOptions()
         vagas.selectJobs()

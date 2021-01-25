@@ -29,10 +29,12 @@ btn.addEventListener('click',() => {
     const [email_infojobs, password_infojobs, email_vagas, password_vagas] = credentails
 
     btn.disabled = true
+    
     text.innerHTML = `<div id="load" class="d-flex align-items-center">
     <strong>Carregando...</strong>
     <div class="spinner-border ml-auto text-primary" role="status" aria-hidden="true"></div>
     </div></br>`
+
     eel.send(empresa.value, vaga.value, email_infojobs.value, password_infojobs.value, email_vagas.value, password_vagas.value)
     loadSpin = document.querySelector('#load')
 })

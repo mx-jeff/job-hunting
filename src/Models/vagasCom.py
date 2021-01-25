@@ -15,7 +15,7 @@ class VagasCom:
         self.driver = setSelenium("https://www.vagas.com.br")
         output(f'{self.appName} Iniciando...')
 
-    def login(self):
+    def login(self, login, password):
         driver = self.driver
         
         try:
@@ -26,8 +26,8 @@ class VagasCom:
             timer()
 
             # insert credentials and login-in
-            driver.find_element_by_xpath('//*[@id="login_candidatos_form_usuario"]').send_keys(vagasUser)
-            driver.find_element_by_xpath('//*[@id="login_candidatos_form_senha"]').send_keys(vagasPassword)
+            driver.find_element_by_xpath('//*[@id="login_candidatos_form_usuario"]').send_keys(login or vagasUser)
+            driver.find_element_by_xpath('//*[@id="login_candidatos_form_senha"]').send_keys(password or vagasPassword)
             driver.find_element_by_xpath('//*[@id="submitLogin"]').click()
 
         except Exception as error:
@@ -66,7 +66,7 @@ class VagasCom:
             driver.execute_script("arguments[0].click();", filterJunior)
 
         except IndexError:
-            output(f"{appName} Não há vagas para junior :(")
+            output(f"{self.appName} Não há vagas para junior :(")
             pass
 
         output(f'{self.appName} Feito!')

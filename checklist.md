@@ -12,6 +12,7 @@
         - [x] implement button disable when process
         - [x] split interfaces
         - [ ] list of jobs that have been subscribed
+        - [ ] implement better logic control to search better jobs (Filter exact with name, etc)
 
     - [ ] Conpany credentials
         - [ ] page subscriber for get data or a database to store company data and add accounts
@@ -25,6 +26,7 @@
         - [ ] add clear output
     - [ ] implement animations (snippers e etc)
     - [ ] close app when user close interface
+    - [ ] open login function 3 models to set user credentials ou user database  
 
 - [ ] production
     - [x] build app

@@ -15,18 +15,17 @@ command = configVar['command']
 
 
 @eel.expose
-def send(conpany, job, infojobs_email, password_infojobs, vagas_email, vagas_password):
+def send(conpany, job, email_infojobs, password_infojobs, email_vagas, password_vagas):
+
     if conpany == "infojobs":
-        searchInfojob(job)
-        print(infojobs_email, password_infojobs)
+        searchInfojob(job, email_infojobs, password_infojobs)
 
     elif conpany == "vagas.com":
-        searchVagasCom(job)
-        print(vagas_email, vagas_password)
+        searchVagasCom(job, email_vagas, password_vagas)
     
     else:
         output('Insira um site de vagas!')
-
+        checkBtn()
 
 def main():
     

@@ -1,8 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-from src.credentails import user, password
 from src.config import setSelenium
+from src.credentails import user, password
 from src.utils.output import output, checkBtn
 import eel
 
@@ -14,7 +14,7 @@ class Infojobs:
         self.driver = setSelenium('http://www.infojobs.com.br')
         output(f'{self.appName} Iniciando...')
 
-    def login(self):
+    def login(self, login, user_password):
         """
         Login to Infojobs, with credentials
         :return: None
@@ -38,10 +38,10 @@ class Infojobs:
                 self.quitSearch()
 
         self.inputForm = self.driver.find_element_by_xpath('//*[@id="Username"]')
-        self.inputForm.send_keys(user)
+        self.inputForm.send_keys(login or user)
 
         self.passwordForm = self.driver.find_element_by_xpath('//*[@id="Password"]')
-        self.passwordForm.send_keys(password)
+        self.passwordForm.send_keys(user_password or password)
 
         self.submitButton = self.driver.find_element_by_xpath('/html/body/div/div/div/div/div[1]/div[3]/form/button')
         self.submitButton.click()
@@ -119,8 +119,7 @@ class Infojobs:
 
         except Exception as error:
             output(error)
-            pass
-            
+            pass          
 
     def subscribeJob(self, link):
         #get driver

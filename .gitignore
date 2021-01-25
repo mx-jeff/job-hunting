@@ -8,3 +8,4 @@ chromedriver.exe
 robo.ico
 /output
 /app
+.env
