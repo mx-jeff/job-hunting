@@ -3,7 +3,7 @@ const vaga = document.querySelector('#vaga')
 const btn = document.querySelector('#send')
 const text = document.querySelector('#log')
 const stopBtn = document.querySelector('#stop')
-const credentails = document.querySelectorAll('.credentails input[type=text], input[type=password]')
+const credentails = document.querySelectorAll('#modelId input[type=text], input[type=password]')
 let loadSpin
 
 // Mostrar na tela

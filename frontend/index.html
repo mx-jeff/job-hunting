@@ -39,35 +39,53 @@
                                 aria-describedby="helpId">
                         </div>
 
-                        <div id="credentails" class="credentails collapse">
-
-                            <div class="form-group">
-                                <label for="email-infojobs">Infojobs</label>
-                                <input type="text" id="email-infojobs" class="form-control" placeholder="E-mail do infojobs"
-                                    aria-describedby="helpId">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="passwornd-infojobs"></label>
-                                <input type="password" id="password-infojobs" class="form-control" placeholder="Senha do infojobs"
-                                    aria-describedby="helpId">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email-vagas">Vagas.com</label>
-                                <input type="text" id="email-vagas" class="form-control" placeholder="E-mail vagas.com"
-                                    aria-describedby="helpId">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="passwornd-vagas"></label>
-                                <input type="password" id="password-vagas" class="form-control" placeholder="Senha vagas.com"
-                                    aria-describedby="helpId">
+                        <!-- Modal -->
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modelId">
+                          Login
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Credenciais de login</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="email-infojobs">Infojobs</label>
+                                            <input type="text" id="email-infojobs" class="form-control" placeholder="E-mail do infojobs"
+                                                aria-describedby="helpId">
+                                            
+                                            <label for="passwornd-infojobs"></label>
+                                            <input type="password" id="password-infojobs" class="form-control" placeholder="Senha do infojobs"
+                                                aria-describedby="helpId">
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="email-vagas">Vagas.com</label>
+                                            <input type="text" id="email-vagas" class="form-control" placeholder="E-mail vagas.com"
+                                                aria-describedby="helpId">
+                                            
+                                            <label for="passwornd-vagas"></label>
+                                            <input type="password" id="password-vagas" class="form-control" placeholder="Senha vagas.com"
+                                                aria-describedby="helpId">
+                                        </div>
+            
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- Fim do modal -->
 
                         <input type="submit" id="send" class="btn btn-primary" value="Buscar">
-                        <button data-toggle="collapse" class="btn btn-info" data-target="#credentails">Login</button>
                         <button id="stop" class="btn btn-secondary" disabled>Parar busca</button>
                     </form>
                 </div>

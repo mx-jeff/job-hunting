@@ -19,10 +19,10 @@ def send(conpany, job, email_infojobs, password_infojobs, email_vagas, password_
 
     if conpany == "infojobs":
         searchInfojob(job, email_infojobs, password_infojobs)
-
+        
     elif conpany == "vagas.com":
         searchVagasCom(job, email_vagas, password_vagas)
-    
+        
     else:
         output('Insira um site de vagas!')
         checkBtn()

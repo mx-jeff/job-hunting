@@ -11,11 +11,13 @@
         - [x] implement marker when it's done
         - [x] implement button disable when process
         - [x] split interfaces
-        - [ ] list of jobs that have been subscribed
+        - [ ] length of jobs that have been subscribed
         - [ ] implement better logic control to search better jobs (Filter exact with name, etc)
 
-    - [ ] Conpany credentials
-        - [ ] page subscriber for get data or a database to store company data and add accounts
+    - [x] Conpany credentials
+        - [x] page subscriber for get data
+        - [ ] save data of site's login in database
+
 
 - [ ] implement front-end
     - [x] basic bootstrap template
@@ -35,5 +37,4 @@
 - [ ] Bugs
     - [?] selenium open blank page when raches in job list in vagas.com [search..]
     - [?] selenium just open a blank page when invoke driver.get() [search..]
-    - [?] search jobs in adm
-    - [ ] collapse reset yourself
+    - [?] search jobs in adm, python
