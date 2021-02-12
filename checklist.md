@@ -13,6 +13,7 @@
         - [x] split interfaces
         - [ ] length of jobs that have been subscribed
         - [ ] implement better logic control to search better jobs (Filter exact with name, etc)
+        - [ ] write credentials in .env file and displays in login section
 
     - [x] Conpany credentials
         - [x] page subscriber for get data
@@ -38,3 +39,5 @@
     - [?] selenium open blank page when raches in job list in vagas.com [search..]
     - [?] selenium just open a blank page when invoke driver.get() [search..]
     - [?] search jobs in adm, python
+    - [x] fix options of search in vagas
+    - [ ] fix subscribe section in vagas
