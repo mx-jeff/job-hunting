@@ -15,7 +15,7 @@ def setSelenium(link):
     options.add_experimental_option("detach", True)
     options.add_argument('--headless')
 
-    path = environ.get("CHROMEDRIVER_PATH") or resource_path("./chromedriver.exe")
+    path = environ.get("CHROMEDRIVER_PATH") or resource_path(".\\chromedriver.exe")
 
     driver = webdriver.Chrome(path, options=options)
     driver.get(link)

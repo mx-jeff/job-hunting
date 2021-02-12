@@ -54,10 +54,14 @@ class VagasCom:
         timer()
 
         try:
-            filterSp = driver.find_elements_by_partial_link_text('São Paulo')[0]
+            # get container of location links
+            cityContainer = driver.find_element_by_xpath('//*[@id="pesquisaFiltros"]/div[2]/div[1]/ul')
+            
+            filterSp = cityContainer.find_elements_by_partial_link_text('São Paulo')[0]
             driver.execute_script("arguments[0].click();", filterSp)
         
         except IndexError:
+            print(f'{self.appName} Erro aconteceu com a localidade...')
             pass
         
         timer()

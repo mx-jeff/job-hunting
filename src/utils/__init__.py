@@ -10,10 +10,10 @@ def table(href, text):
     print('~' * tamanho)
     print()
 
-def timer():
+def timer(secs=5):
     from time import sleep
 
-    sleep(5)
+    sleep(secs)
 
 def alert(browser):
     alert = browser.switch_to.alert
