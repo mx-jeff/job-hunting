@@ -55,12 +55,10 @@ class Infojobs:
         """
         output(f'{self.appName} Selecionando vaga...')
         try:
-            self.searchJob = self.driver.find_element_by_xpath(
-                '/html/body/form/div[3]/div[6]/section[1]/div/div/ol/li[1]/input')
+            self.searchJob = self.driver.find_element_by_name('Palabra')
         except:
             try:
-                self.searchJob = self.driver.find_element_by_xpath(
-                    '/html/body/form/div[4]/div[6]/section[1]/div/div/ol/li[1]/input')
+                self.searchJob.find_element_by_name('Palabra')
 
             except:
                 raise

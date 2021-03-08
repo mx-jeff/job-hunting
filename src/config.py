@@ -13,9 +13,9 @@ def setSelenium(link):
     options.add_argument('--no-sandbox')
     options.add_argument("--disable-logging")
     options.add_experimental_option("detach", True)
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
 
-    path = environ.get("CHROMEDRIVER_PATH") or resource_path(".\\chromedriver.exe")
+    path = "chromedriver.exe"
 
     driver = webdriver.Chrome(path, options=options)
     driver.get(link)
@@ -23,7 +23,9 @@ def setSelenium(link):
 
     return driver
 
-configVar = {}
-configVar['graphInferface'] = False
-configVar['cli'] = False
-configVar['command'] = True
+
+configVar = {
+    'graphInferface': False,
+    'cli': False,
+    'command': True
+}

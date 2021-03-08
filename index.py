@@ -4,7 +4,6 @@ from src.controllers.apinfoController import searchApinfo
 from src.utils.output import output, checkBtn
 from src.config import configVar
 
-import os
 import sys
 import eel
 
@@ -26,6 +25,7 @@ def send(conpany, job, email_infojobs, password_infojobs, email_vagas, password_
     else:
         output('Insira um site de vagas!')
         checkBtn()
+
 
 def main():
     
