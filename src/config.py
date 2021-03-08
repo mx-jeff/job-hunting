@@ -13,7 +13,7 @@ def setSelenium(link):
     options.add_argument('--no-sandbox')
     options.add_argument("--disable-logging")
     options.add_experimental_option("detach", True)
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
 
     path = "chromedriver.exe"
 
