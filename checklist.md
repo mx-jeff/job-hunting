@@ -27,7 +27,7 @@
         - [ ] add type controls
         - [ ] add quit search for job
         - [ ] add clear output
-    - [ ] implement animations (snippers e etc)
+    - [x] implement animations (snippers e etc)
     - [ ] close app when user close interface
     - [ ] open login function 3 models to set user credentials ou user database  
 
