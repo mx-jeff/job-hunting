@@ -13,7 +13,8 @@
         - [x] split interfaces
         - [ ] length of jobs that have been subscribed
         - [ ] implement better logic control to search better jobs (Filter exact with name, etc)
-        - [ ] write credentials in .env file and displays in login section
+        - [x] write and populate credentails in localstorage 
+        - [ ] write and populate credentails in database
 
     - [x] Conpany credentials
         - [x] page subscriber for get data
@@ -29,7 +30,7 @@
         - [ ] add clear output
     - [x] implement animations (snippers e etc)
     - [ ] close app when user close interface
-    - [ ] open login function 3 models to set user credentials ou user database  
+    - [x] open login function 3 models to set user credentials ou user database  
 
 - [ ] production
     - [x] build app

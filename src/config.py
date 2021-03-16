@@ -25,7 +25,7 @@ def setSelenium(link):
 
 
 configVar = {
-    'graphInferface': False,
+    'graphInferface': True,
     'cli': False,
-    'command': True
+    'command': False
 }
