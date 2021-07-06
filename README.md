@@ -29,7 +29,7 @@ pip install -r requirements.txt
  and activate:
  
  ```python
-python app.py
+python index.py
 ```
 
 ## Usage 
