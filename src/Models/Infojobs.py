@@ -37,6 +37,7 @@ class Infojobs:
                 output(f'[ERRO] {error}, contate o administrador')
                 self.quitSearch()
 
+        self.current_url = self.driver.current_url
         self.inputForm = self.driver.find_element_by_xpath('//*[@id="Username"]')
         self.inputForm.send_keys(login or user)
 
@@ -45,6 +46,11 @@ class Infojobs:
 
         self.submitButton = self.driver.find_element_by_xpath('/html/body/div/div/div/div/div[1]/div[3]/form/button')
         self.submitButton.click()
+        sleep(3)
+        if self.current_url == self.driver.current_url:
+            print(f'{self.appName} Login inválido ou campos errados!')
+            return
+
         output(f'{self.appName} Logado com sucesso')
 
     def searchList(self, jobType):
@@ -142,10 +148,14 @@ class Infojobs:
             pass
 
     def clearCookie(self):
-        self.driver.find_element_by_id('AllowCookiesButton').click()
+        try:
+            self.driver.find_element_by_id('AllowCookiesButton').click()
+        except Exception:
+            self.driver.find_element_by_id('didomi-notice-agree-button').click()
 
     def quitSearch(self):
         output(f'{self.appName} Saindo... volte sempre :)')
         self.driver.quit()
+        raise
         checkBtn()
 

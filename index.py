@@ -6,8 +6,10 @@ from src.config import configVar
 
 import sys
 import eel
+import os
 
 
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 cli = configVar['cli']
 graphInferface = configVar['graphInferface']
 command = configVar['command']
@@ -66,6 +68,10 @@ def main():
 
     except IndexError:
         output('Insira um site de vagas!')
+        checkBtn()
+    
+    except KeyboardInterrupt:
+        output('Saindo, volte sempre!')
         checkBtn()
 
 if __name__ == "__main__":

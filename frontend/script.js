@@ -65,9 +65,9 @@ saveCredentials.addEventListener('click', () => {
 })
 
 // Parar busca de empregos
-// btn.addEventListener('click', () => {
-//     eel.stop()
-// })
+stopBtn.addEventListener('click', () => {
+    eel.stop_search()
+})
 
 // se tiver dados na local storage, popular-los com a local storage
 if(localStorage.getItem('credentails') !== null) {

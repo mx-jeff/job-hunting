@@ -18,3 +18,11 @@ def checkBtn():
 
     eel.enableButton()
         
+
+@eel.expose
+def stop_search():
+    if not graphInterface:
+        return
+
+    output("Habilitando botão...")
+    # eel.enableButton()

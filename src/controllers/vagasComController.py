@@ -20,4 +20,9 @@ def searchVagasCom(targetJob, login, password):
         output("Algum problema ocorreu e/ou as informações estão erradas!")
         vagas.quitSearch()
         checkBtn()
+
+    except KeyboardInterrupt:
+        output('Saindo, volte sempre!')
+        vagas.quitSearch()
+        checkBtn()
         

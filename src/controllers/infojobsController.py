@@ -15,5 +15,11 @@ def searchInfojob(jobTarget, login, password):
 
     except Exception as error:
         output("Algum problema ocorreu e/ou as inforamções estão erradas!")
+        output(f"Erro {error}, contate o adminstrador do sistema")
         checkBtn()
         jobs.quitSearch()
+
+    except KeyboardInterrupt:
+        output('Saindo, volte sempre!')
+        jobs.quitSearch()
+        checkBtn()
