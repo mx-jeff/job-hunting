@@ -24,9 +24,9 @@ def setSelenium(link):
     options.add_argument('--no-sandbox')
     options.add_argument("--disable-logging")
     options.add_experimental_option("detach", True)
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
 
-    path = environ.get('CHROMEDRIVER_PATH') or resource_path(f"{ROOT_DIR}/chromedriver.exe") 
+    path = resource_path(os.path.join(ROOT_DIR, "chromedriver.exe")) or environ.get('CHROMEDRIVER_PATH')
 
     driver = webdriver.Chrome(path, options=options)
     driver.get(link)
