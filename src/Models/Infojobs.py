@@ -47,6 +47,7 @@ class Infojobs:
         self.submitButton = self.driver.find_element_by_xpath('/html/body/div/div/div/div/div[1]/div[3]/form/button')
         self.submitButton.click()
         sleep(3)
+        
         if self.current_url == self.driver.current_url:
             print(f'{self.appName} Login inválido ou campos errados!')
             return
