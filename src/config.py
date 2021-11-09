@@ -35,6 +35,7 @@ def setSelenium(link):
     return driver
 
 
+
 configVar = {
     'graphInferface': False,
     'cli': False,
