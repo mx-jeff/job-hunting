@@ -5,7 +5,7 @@ from src.config import configVar
 
 graphInterface = configVar['graphInferface']
 
-def output(*msg):
+def output(msg):
     if graphInterface:
         eel.output(msg)
     
