@@ -48,7 +48,7 @@ def searchVagasCom(targetJob, login, password):
                     else:
                         fail += 1
 
-                    output(f"{job_site} {index + 1} vaga, status: {status}")
+                    output(f"{job_site} vaga {index + 1}/{len(vagas.targetLink)}, status: {status}", end="\r")
 
         except Exception:  
             output(f"{job_site} erro ao se inscrever!")

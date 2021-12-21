@@ -50,7 +50,7 @@ def searchInfojob(jobTarget, login, password):
                     else:
                         fail += 1
 
-                    output(f"{site_job} {index + 1} vaga, status: {status}")
+                    output(f"{site_job} vaga {index + 1}/{len(jobs.jobsLink)}, status: {status}", end="\r")
         
         except Exception:
             output(f"{site_job} Erro ao se cadastrar, saindo...")
