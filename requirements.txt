@@ -17,7 +17,7 @@ pyparsing==2.4.7
 python-dotenv==0.15.0
 pywin32-ctypes==0.2.0
 selenium==3.141.0
-urllib3==1.26.2
+urllib3==1.26.5
 whichcraft==0.6.1
 zope.event==4.5.0
 zope.interface==5.2.0
