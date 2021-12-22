@@ -5,12 +5,16 @@ from src.config import configVar
 
 graphInterface = configVar['graphInferface']
 
-def output(msg):
+def output(msg, replaceline=False):
     if graphInterface:
         eel.output(msg)
     
-    print(msg)
+    if replaceline:
+        print(msg, end="\r")
     
+    else:
+        print(msg)
+        
 
 def checkBtn():
     if not graphInterface:
