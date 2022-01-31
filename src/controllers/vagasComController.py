@@ -7,7 +7,7 @@ import eel
 
 
 def searchVagasCom(targetJob, login, password):
-    vagas = VagasCom(headless=True)
+    vagas = VagasCom("C:\Selenium\chromedriver.exe", headless=True)
     job_site = vagas.appName
 
     output(f'{job_site} Iniciando...')
@@ -32,7 +32,7 @@ def searchVagasCom(targetJob, login, password):
         output(f'{job_site} Listando Vagas...')
         vagas.selectJobs()
         output(f'{job_site} Feito!')
-        output(f"{len(vagas.targetLink)} vagas encontradas!")
+        output(f"{job_site} {len(vagas.targetLink)} vagas encontradas!")
 
         success = 0
         fail = 0
@@ -48,9 +48,10 @@ def searchVagasCom(targetJob, login, password):
                     else:
                         fail += 1
 
-                    output(f"{job_site} vaga {index + 1}/{len(vagas.targetLink)}, status: {status}", end="\r")
+                    print(f"{job_site} vaga {index + 1}/{len(vagas.targetLink)}, status: {status}", end="\r")
 
-        except Exception:  
+        except Exception as error:
+            print(error)
             output(f"{job_site} erro ao se inscrever!")
 
         finally:
