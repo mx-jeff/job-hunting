@@ -42,7 +42,7 @@ def searchVagasCom(targetJob, login, password):
             for index, target in enumerate(vagas.targetLink):
                 if target.startswith("https://") or target.startswith("http://"):
                     status = vagas.subscribeJob(target)
-                    if status == "Vaga cadastrada!":
+                    if status == 'Inscrição realizada com sucesso :) ':
                         success += 1
 
                     else:
