@@ -7,7 +7,7 @@ import eel
 
 
 def searchVagasCom(targetJob, login, password):
-    vagas = VagasCom("C:\Selenium\chromedriver.exe", headless=True)
+    vagas = VagasCom(headless=True)
     job_site = vagas.appName
 
     output(f'{job_site} Iniciando...')
