@@ -45,6 +45,7 @@ def searchInfojob(jobTarget, login, password):
         fail = 0
         output(f"{site_job} Se inscrevendo nas vagas...")
 
+ 
         try:
             for index, target in enumerate(jobs.jobsLink):
                 if target.startswith("https://") or target.startswith("http://"):
