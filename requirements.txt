@@ -14,7 +14,7 @@ gevent-websocket==0.10.1
 greenlet==1.1.2
 h11==0.13.0
 idna==3.3
-job-hunting==0.2.4
+job-hunting==0.2.6
 outcome==1.1.0
 packaging==21.3
 pep517==0.12.0
