@@ -25,9 +25,9 @@ def searchVagasCom(targetJob, login, password):
         vagas.insertJob(targetJob)
         output(f'{job_site} Vaga selecionada!')
 
-        output(f'{job_site} A ajustar opções...')
-        vagas.searchOptions()
-        output(f'{job_site} Feito!')
+        # output(f'{job_site} A ajustar opções...')
+        # vagas.searchOptions()
+        # output(f'{job_site} Feito!')
 
         output(f'{job_site} Listando Vagas...')
         vagas.selectJobs()
